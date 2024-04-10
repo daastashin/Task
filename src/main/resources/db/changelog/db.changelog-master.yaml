@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: Migration-0
+      author: Danil
+      changes:
+        - createTable:
+            tableName: contacts
+            remarks: Users that have already signed up
+            columns:
+              - column:
+                  name: user_id
+                  type: integer
+                  autoIncrement: true
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: contacts_pk
+                    nullable: false
+                    unique: true
+              - column:
+                  name: secret_word
+                  type: varchar(100)
+              - column:
+                  name: password
+                  type: varchar(100)
+              - column:
+                  name: authorized
+                  type: boolean
+                  value: "false"
+        - createTable:
+            tableName: messages
+            remarks: History of messages
+            columns:
+              - column:
+                  name: message_id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: messages_pk
+                    nullable: false
+              - column:
+                  name: message
+                  type: varchar(100)
+              - column:
+                  name: time
+                  type: varchar(100)
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    foreignKeyName: fk_constraint_name
+                    referencedTableName: contacts
+                    referencedColumnNames: name
