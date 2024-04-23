@@ -1,4 +1,0 @@
-accessTokenExpTime=300000
-refreshTokenExpTime=600000
-step=0
-secretKeyTemplate=BlaBlaBlaSymbolsToMeetTheRequirementsForSecretKey
